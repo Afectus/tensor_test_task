@@ -21,5 +21,5 @@ if __name__ == "__main__":
         draw_data = data_base_manager.get_draw_data_all_persons_in_city(
             user_id
         )
-        print('Персонал в городе %s' % draw_data['name'])
+        print('Персонал в городе %s' % draw_data['city_name'])
         print(draw_data['persons_list'])

@@ -113,15 +113,16 @@ class DataBaseManager:
                 FROM Persons
                 INNER JOIN r ON r.ParentId=Persons.id
             )
-            SELECT Id, level  FROM r
+            SELECT Id, Name, level  FROM r
         """ % (persons_id)
         cursor = self.conn.cursor()
         cursor.execute(sql_str)
         records = sorted(
             cursor.fetchall(), key=lambda x: x[2], reverse=True
-            )[0]
+            )
         main_parent = records[0]
-        return {'name': main_parent[1], 'id': main_parent[0]}
+        result = {'id': main_parent[0], 'name': main_parent[1]}
+        return result
 
     def get_all_persons_in_city(self, city_id):
         """
@@ -160,7 +161,7 @@ class DataBaseManager:
         params:
             persons_id(id записи в таблице persons)
         """
-        main_parent_id_and_name = self.get_main_parent_id_and_name()
+        main_parent_id_and_name = self.get_main_parent_id_and_name(persons_id)
         all_persons_in_city = self.get_all_persons_in_city(
             main_parent_id_and_name['id']
             )
