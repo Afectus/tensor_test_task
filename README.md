@@ -16,6 +16,6 @@
 Примеры использования:
 	python run.py --create_table создание таблицы для персонала
 	python run.py --load_json_data загрузка данных из json файла
-	python run.py --show_persons_in_city вывод всех сотрудников работающих в городе.
-				  --show_persons_in_city [id] работника
+	python run.py --show_persons_in_city [id] вывод всех сотрудников работающих в городе.
+	python run.py --show_persons_in_city 3
 ```
