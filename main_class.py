@@ -87,7 +87,7 @@ class DataBaseManager:
         """
         Запись данных в таблицу Persons из json файла
         """
-        data_from_json = self.get_data_for_insert_person
+        data_from_json = self.get_data_for_insert_person()
         self.create_persons(data_from_json)
 
     def get_main_parent_id_and_name(self, persons_id):
